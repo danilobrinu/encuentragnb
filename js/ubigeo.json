@@ -1,0 +1,110 @@
+[
+	{
+		"department": "arequipa",
+		"provinces": [
+			{
+				"province": "arequipa",
+				"districts": [
+					{
+						"district": "arequipa"
+					},
+					{
+						"district": "cayma"
+					}
+				]
+			}
+		]
+	},
+	{
+		"department": "callao",
+		"provinces": [
+			{
+				"province": "callao",
+				"districts": [
+					{
+						"district": "carmen de la legua reynoso"
+					}
+				]
+			}
+		] 
+	},
+	{
+		"department": "la libertad",
+		"provinces": [
+			{
+				"province": "trujillo",
+				"districts": [
+					{
+						"district": "trujillo"
+					}
+				]
+			}
+		] 
+	},
+	{
+		"department": "lambayeque",
+		"provinces": [
+			{
+				"province": "chiclayo",
+				"districts": [
+					{
+						"district": "chiclayo"
+					}
+				]
+			}
+		] 
+	},
+	{
+		"department": "lima",
+		"provinces": [
+			{
+				"province": "lima",
+				"districts": [
+					{
+						"district": "independencia"
+					},
+					{
+						"district": "la molina"
+					},
+					{
+						"district": "lima"
+					},
+					{
+						"district": "los olivos"
+					},
+					{
+						"district": "magdalena del mar"
+					},
+					{
+						"district": "miraflores"
+					},
+					{
+						"district": "san isidro"
+					},
+					{
+						"district": "san miguel"
+					},
+					{
+						"district": "santa anita"
+					},
+					{
+						"district": "santiago de surco"
+					}
+				]
+			}
+		] 
+	},
+	{
+		"department": "piura",
+		"provinces": [
+			{
+				"province": "piura",
+				"districts": [
+					{
+						"district": "piura"
+					}
+				]
+			}
+		] 
+	}
+]

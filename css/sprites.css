@@ -1,0 +1,71 @@
+[class*="icon-"] {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	background-image: url(../img/sprites.png);
+	background-repeat: no-repeat;
+}
+.icon-arrow-down {
+	background-position: 0 0;
+	width: 32px;
+}
+.icon-arrow-up {
+	background-position: -48px 0;
+	width: 32px;
+}
+.icon-phone {
+	background-position: -96px 0;
+	width: 32px;
+}
+.icon-mail {
+	background-position: -144px 0;
+	width: 32px;
+}
+.icon-paperplane {
+	background-position: -192px 0;
+	width: 32px;
+}
+.icon-map {
+	background-position: -240px 0;
+	width: 32px;
+}
+.icon-retweet {
+	background-position: -288px 0;
+	width: 32px;
+}
+.icon-download {
+	background-position: -336px 0;
+	width: 32px;
+}
+.icon-user {
+	background-position: -384px 0;
+	width: 32px;
+}
+.icon-thumbs up {
+	background-position: -432px 0;
+	width: 32px;
+}
+.icon-search {
+	background-position: -480px 0;
+	width: 32px;
+}
+.icon-ellipsis {
+	background-position: -528px 0;
+	width: 32px;
+}
+.icon-dots {
+	background-position: -576px 0;
+	width: 32px;
+}
+.icon-dot {
+	background-position: -624px 0;
+	width: 32px;
+}
+.icon-house {
+	background-position: -672px 0;
+	width: 32px;
+}
+.icon-new {
+	background-position: -720px 0;
+	width: 32px;
+}
