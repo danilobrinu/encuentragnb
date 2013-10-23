@@ -12,7 +12,7 @@
 .app__block--location__filters__layout {}
 .app__block--location__filters__layout__filter {}
 .app__block--location__filters__layout__filter__label { display: block; color: #999; margin-bottom: 5px; }
-.app__block--location__filters__layout__filter__input-data { width: 100%; border: 1px solid #DDD; background-color: #FFF; height: 32px; border-radius: 4px; }
+.app__block--location__filters__layout__filter__input-data { width: 100%; border: 1px solid #DDD; background-color: #FFF; height: 32px; border-radius: 4px; color: #777; }
 /* service channel */
 .app__block--service-channels {}
 .app__block--service-channels__header {}
@@ -26,10 +26,24 @@
 .app__block--service-channels__filters__layout__button-search {}
 .app__block--service-channels__filters__layout__button-search__button { background-color: #8DA93D; color: #FFF; border: 0; border-radius: 4px; padding: 3px 18px; }
 /* results */
-.app__block--results__layout { padding-bottom: 40px; }
+.app__block--results { padding-bottom: 40px;  margin-bottom: 0; }
+.app__block--results__layout { }
 .app__block--results__layout__container__results { height: 400px; } 
 .app__block--results__layout__container__results__header { color: #999; margin-bottom: 5px; margin-top: 10px; } 
 .app__block--results__layout__container__results__container { background-color: #FFF; width: 100%; height: 380px; border: 1px solid #DDD; margin-bottom: 10px; }
+.app__block--results__layout__container__results__container__result {
+	padding: 10px; 
+	text-transform: uppercase; 
+	font-size: .875em;
+	cursor: pointer;
+}
+.app__block--results__layout__container__results__container__result--active { background-color: #EEE; }
+.app__block--results__layout__container__results__container__result__header { margin-bottom: 8px; font-weight: bold; line-height: 1; }
+.app__block--results__layout__container__results__container__result__data { margin: 0; margin-bottom: 8px; line-height: 1; }
+.app__block--results__layout__container__results__container__result--AGENCIA { border-top: 4px solid  #8DA93D; }
+.app__block--results__layout__container__results__container__result--AGENCIA .app__block--results__layout__container__results__container__result__header span { color: #8DA93D; }
+.app__block--results__layout__container__results__container__result--CAJERO { border-top: 4px solid #026AB3; }
+.app__block--results__layout__container__results__container__result--CAJERO .app__block--results__layout__container__results__container__result__header span { color: #026AB3; }
 .app__block--results__layout__container__map { height: 400px; }
 .app__block--results__layout__container__map__header { color: #999; margin-bottom: 5px; margin-top: 10px; }
 .app__block--results__layout__container__map__container { background-color: #FFF; width: 100%; height: 380px; border: 1px solid #DDD; }

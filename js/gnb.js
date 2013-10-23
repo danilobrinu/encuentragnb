@@ -4,9 +4,12 @@ var ubigeo,
   $provinces = $('#provinces'),
   $districts = $('#districts'),
   $address = $('#address'),
+  $serviceChannelAllTypes = $('#serviceChannelAll'),
+  $serviceChannelType = $('input[name=serviceChannelType]'),
   map,
   mapOptions,
   marker,
+  icon,
   serviceChannels,
   serviceChannel,
   serviceChannelCoordinates,
@@ -17,7 +20,7 @@ $(window).on('load', function() {
   /**
    * Initialize Service Channels
    */
-  $.getJSON('js/serviceChannels.json')
+  $.getJSON('js/serviceChannelsGNB.json')
     .done(function(data) {
       serviceChannels = data;
     })
@@ -82,7 +85,7 @@ $(window).on('load', function() {
           latitude: position.coords.latitude, 
           longitude: position.coords.longitude,
           name: 'BIENVENIDO A BNG'
-        });
+        }, true);
       };
       var errorHandler = function() {
         alert('Error al recoger los datos de su coordenada actual');
@@ -99,19 +102,20 @@ $(window).on('load', function() {
 $buttonSearch.on('click', function() {
   search();
   /* after search and render data - load events */
-  $buttonShowMap = $('.app__screens__display__container__screen--results__layout__result');
+  $buttonShowMap = $('.app__block--results__layout__container__results__container__result');
   $buttonShowMap.on('click', function() {
-    var classActiveResult = 'app__screens__display__container__screen--results__layout__result--active',
+    console.log('click');
+    var classActiveResult = 'app__block--results__layout__container__results__container__result--active',
       latitudeChosen = $(this).find('.latitude').val(),
       longitudeChosen = $(this).find('.longitude').val();
-    $('.app__screens__display__container__screen--results__layout__result').removeClass(classActiveResult);
+    $('.app__block--results__layout__container__results__container__result').removeClass(classActiveResult);
     $(this).addClass(classActiveResult);
     serviceChannel = _.find(serviceChannels, function(serviceChannel) { return serviceChannel.latitude == latitudeChosen && serviceChannel.longitude == longitudeChosen; });
-    showMap(serviceChannel);
+    showMap(serviceChannel, false);
   });
 });
 
-function showMap(serviceChannel) {
+function showMap(serviceChannel, defaultMap) {
   google.maps.visualRefresh = true;
   serviceChannelCoordinates = new google.maps.LatLng(serviceChannel.latitude, serviceChannel.longitude);
   mapOptions = {
@@ -121,11 +125,27 @@ function showMap(serviceChannel) {
       mapTypeControl: false
   };
   map = new google.maps.Map(document.getElementById('googleMapGNB'), mapOptions);
-  marker = new google.maps.Marker({
-      position: serviceChannelCoordinates,
-      map: map,
-      title: serviceChannel.name 
-  });
+  if (!defaultMap) {
+    icon = {
+      url: 'img/icon-bng.png',
+      size: new google.maps.Size(40, 32),
+      origin: new google.maps.Point(0,0),
+      anchor: new google.maps.Point(0, 32)
+    }
+    marker = new google.maps.Marker({
+        position: serviceChannelCoordinates,
+        map: map,
+        icon: icon,
+        title: serviceChannel.name 
+    });
+  } else {
+    marker = new google.maps.Marker({
+        position: serviceChannelCoordinates,
+        map: map,
+        title: serviceChannel.name 
+    });
+  }
+  
 }
 
 function search() {
@@ -134,26 +154,33 @@ function search() {
       districtChosen = $districts.val(),
       addressChosen = $address.val().toUpperCase(),
       serviceChannelsResults = _.filter(serviceChannels, function(serviceChannel) {
-        return serviceChannel.department == departmentChosen && serviceChannel.province == provinceChosen && serviceChannel.district == districtChosen && serviceChannel.address.search(addressChosen) != -1;
+        var $serviceChannelTypeChecked = $('input[name=serviceChannelType]:checked');
+        return serviceChannel.department == departmentChosen && 
+               serviceChannel.province == provinceChosen && 
+               serviceChannel.district == districtChosen && 
+               serviceChannel.address.search(addressChosen) != -1 &&
+               ( $serviceChannelTypeChecked.length == 2 ? (serviceChannel.type == "AGENCIA" || serviceChannel.type == "CAJERO") : serviceChannel.type == $serviceChannelTypeChecked.val() );
       }),
       template,
       results;
   template = "<% _.each(serviceChannelsResults, function(serviceChannelResult) { %>" +
-             "<div class='app__screens__display__container__screen--results__layout__result'>" +
-             "  <span class='app__screens__display__container__screen--results__layout__result__title'><%= serviceChannelResult.name %></span>" +
-             "  <span class='app__screens__display__container__screen--results__layout__result__text'><%= serviceChannelResult.address %></span>" +   
-             "  <span class='app__screens__display__container__screen--results__layout__result__text'><%= serviceChannelResult.phones %></span>" +
-             "  <span class='app__screens__display__container__screen--results__layout__result__text app__screens__display__container__screen--results__layout__result__text--strong'><%= serviceChannelResult.customerSchedule %></span>" +
+             "<div class='app__block--results__layout__container__results__container__result app__block--results__layout__container__results__container__result--<%= serviceChannelResult.type %>'>" +
+             "  <header class='app__block--results__layout__container__results__container__result__header'>" +
+             "    <span><%= serviceChannelResult.type %></span> <%= serviceChannelResult.name %>" +
+             "  </header>" +
+             "  <p class='app__block--results__layout__container__results__container__result__data'><%= serviceChannelResult.address %></p>" +   
+             "  <p class='app__block--results__layout__container__results__container__result__data'><%= serviceChannelResult.phones %></p>" +
+             "  <p class='app__block--results__layout__container__results__container__result__data'><%= serviceChannelResult.customerSchedule %></p>" +
              "  <div class='hidden invisible ir'>" +
              "    <input type='hidden' value='<%= serviceChannelResult.latitude %>' class='latitude'>" +
              "    <input type='hidden' value='<%= serviceChannelResult.longitude %>' class='longitude'>" +
              "  </div>" +
              "</div>" +
              "<% }); %>";
-  /* load template */
-  results = "<div class='app__screens__display__container__screen--results__layout__result'>" +
-            "no hay resultados, porfavor vuelva a realizar la busqueda" +
-            "</div>";
-  results = _.template(template, {serviceChannelsResults: serviceChannelsResults}) == '' ? results : _.template(template, {serviceChannelsResults: serviceChannelsResults});
-  $('.app__block--results__layout__container__results__container').html(results);
+  $('.app__block--results__layout__container__results__container').html( _.template(template, {serviceChannelsResults: serviceChannelsResults}) );
 }
+
+$serviceChannelAllTypes.on('click', function() {
+  var checked = $(this).is(':checked');
+  $serviceChannelType.attr('checked', checked);
+});
