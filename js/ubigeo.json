@@ -1,107 +1,107 @@
 [
 	{
-		"department": "arequipa",
+		"department": "AREQUIPA",
 		"provinces": [
 			{
-				"province": "arequipa",
+				"province": "AREQUIPA",
 				"districts": [
 					{
-						"district": "arequipa"
+						"district": "AREQUIPA"
 					},
 					{
-						"district": "cayma"
+						"district": "CAYMA"
 					}
 				]
 			}
 		]
 	},
 	{
-		"department": "callao",
+		"department": "CALLAO",
 		"provinces": [
 			{
-				"province": "callao",
+				"province": "CALLAO",
 				"districts": [
 					{
-						"district": "carmen de la legua reynoso"
+						"district": "CARMEN DE LA LEGUA REYNOSO"
 					}
 				]
 			}
 		] 
 	},
 	{
-		"department": "la libertad",
+		"department": "LA LIBERTAD",
 		"provinces": [
 			{
-				"province": "trujillo",
+				"province": "TRUJILLO",
 				"districts": [
 					{
-						"district": "trujillo"
+						"district": "TRUJILLO"
 					}
 				]
 			}
 		] 
 	},
 	{
-		"department": "lambayeque",
+		"department": "LAMBAYEQUE",
 		"provinces": [
 			{
-				"province": "chiclayo",
+				"province": "CHICLAYO",
 				"districts": [
 					{
-						"district": "chiclayo"
+						"district": "CHICLAYO"
 					}
 				]
 			}
 		] 
 	},
 	{
-		"department": "lima",
+		"department": "LIMA",
 		"provinces": [
 			{
-				"province": "lima",
+				"province": "LIMA",
 				"districts": [
 					{
-						"district": "independencia"
+						"district": "INDEPENDENCIA"
 					},
 					{
-						"district": "la molina"
+						"district": "LA MOLINA"
 					},
 					{
-						"district": "lima"
+						"district": "LIMA"
 					},
 					{
-						"district": "los olivos"
+						"district": "LOS OLIVOS"
 					},
 					{
-						"district": "magdalena del mar"
+						"district": "MAGDALENA DEL MAR"
 					},
 					{
-						"district": "miraflores"
+						"district": "MIRAFLORES"
 					},
 					{
-						"district": "san isidro"
+						"district": "SAN ISIDRO"
 					},
 					{
-						"district": "san miguel"
+						"district": "SAN MIGUEL"
 					},
 					{
-						"district": "santa anita"
+						"district": "SANTA ANITA"
 					},
 					{
-						"district": "santiago de surco"
+						"district": "SANTIAGO DE SURCO"
 					}
 				]
 			}
 		] 
 	},
 	{
-		"department": "piura",
+		"department": "PIURA",
 		"provinces": [
 			{
-				"province": "piura",
+				"province": "PIURA",
 				"districts": [
 					{
-						"district": "piura"
+						"district": "PIURA"
 					}
 				]
 			}

@@ -154,8 +154,7 @@ body {
 	padding: 2px 0;
 	border: 0; 
 	outline: 0; 
-	background-color: #fff; 
-	text-transform: uppercase; 
+	background-color: #fff;  
 	font-family: 'Open Sans', sans-serif; 
 }
 .app__screens__display__container__screen--search__form__group__input {

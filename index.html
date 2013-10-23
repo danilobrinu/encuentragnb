@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Buscador Agencias GNB</title>
         <!-- setting responsive
 ==================================================-->
         <meta name="viewport" content="width=device-width">
@@ -14,10 +14,10 @@
         <meta name="keywords" content="">
         <!-- bng - css
 ==================================================--> 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/sprites.css">
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+        <link rel="stylesheet" href="css/grid.css">
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/gnb.css">
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -25,78 +25,95 @@
         <![endif]-->
         <!-- bng app
 ==================================================-->
-        <aside class="app clearfix">
-            <div class="app__screens">
-                <div class="app__screens__display">
-                    <div class="app__screens__display__container clearfix">
-                        <div class="app__screens__display__container__screen app__screens__display__container__screen--search">
-                            <div class="app__screens__display__container__screen--search__form">
-                                <div class="app__screens__display__container__screen--search__form__group">
-                                    <label for="departments" class="app__screens__display__container__screens--search__form__group">departamento</label>
-                                    <select id="departments" class="app__screens__display__container__screen--search__form__group__select">
-                                    </select>
-                                </div>
-                                <div class="app__screens__display__container__screen--search__form__group">
-                                    <label for="provinces" class="app__screens__display__container__screens--search__form__group">provincia</label>
-                                    <select id="provinces" class="app__screens__display__container__screen--search__form__group__select">
-                                    </select>
-                                </div>
-                                <div class="app__screens__display__container__screen--search__form__group">
-                                    <label for="districts" class="app__screens__display__container__screens--search__form__group">distrito</label>
-                                    <select id="districts" class="app__screens__display__container__screen--search__form__group__select">
-                                    </select>
-                                </div>
-                                <div class="app__screens__display__container__screen--search__form__group">
-                                    <label for="department" class="app__screens__display__container__screens--search__form__group">dirección</label> 
-                                    <input type="text" name="" id="" class="app__screens__display__container__screen--search__form__group__input">
-                                </div>
-                                <div class="app__screens__display__container__screen--search__form__group"> 
-                                    <input type="checkbox" name="" id="" class="app__screens__display__container__scren--search__form__group__checkbox"> todos
-                                </div>
-                                <div class="app__screens__display__container__screen--search__form__group"> 
-                                    <input type="checkbox" name="" id="" class="app__screens__display__container__scren--search__form__group__checkbox"> agencias
-                                </div>
-                                <div class="app__screens__display__container__screen--search__form__group"> 
-                                    <input type="checkbox" name="" id="" class="app__screens__display__container__scren--search__form__group__checkbox"> agentes gnb
-                                </div>
-                                <div class="app__screens__display__container__screen--search__form__group"> 
-                                    <input type="checkbox" name="" id="" class="app__screens__display__container__scren--search__form__group__checkbox"> cajeros automáticos
-                                </div>
-                                <button type="button" class="app__screens__display__container__screen--search__form__button">buscar</button>
-                            </div>
-                        </div>
-                        <div class="app__screens__display__container__screen app__screens__display__container__screen--results">
-                            <div class="app__screens__display__container__screen--results__layout">
-                                <div class="app__screens__display__container__screen--results__layout__result">
-                                    no hay resultados, porfavor vuelva a realizar la busqueda
-                                </div>
-                            </div>
-                        </div>
-                        <div class="app__screens__display__container__screen app__screens__display__container__screen--legend">
-                            <div class="app__screens__display__container__screen--legend__layout">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <nav class="app__screens__buttons clearfix">
-                    <span class="app__screens__buttons__button app__screens__buttons__button--search">busqueda</span>
-                    <span class="app__screens__buttons__button app__screens__buttons__button--results">resultados</span>
-                    <span class="app__screens__buttons__button app__screens__buttons__button--legend">leyenda</span>
-                </nav>
-            </div>
-            <div class="app__show-button">
-                <!--<h2 style="position: absolute; right: 40px; line-height: 40px; margin: 0; font-size: 0;"><img src="img/icon-bng.png" alt="" style="height: 40px;"></h2>-->
-                <span class="icon-arrow-up app__show-button__icon"></span>
-            </div>
-        </aside>
         <!-- bng - map
 ==================================================-->
-        <div id="gm"></div>
+		<div class="app container">
+			<header class="row app__block app__block--header">
+				<img src="img/logo.png" alt="" class="col-lg-4 col-md-4 col-sm-5 col-xs-12 app__block--header__logo-image">
+				<img src="img/agencias.png" alt="" class="col-lg-6 col-lg-push-2 col-md-6 col-md-push-2 col-sm-7 col-xs-12 app__block--header__agency-image">
+			</header>
+			<div class="row app__block app__block--location">
+				<header class="row app__block--location__header">
+					<div class="col-lg-10 col-lg-push-1 app__block--location__header__layout">
+						<div class="col-lg-12 app__block--location__header__layout__text">Seleccionar la Ubicación</div>
+					</div>
+				</header>
+				<section class="row app__block--location__filters">
+					<div class="col-lg-10 col-lg-push-1 app__block--location__filters__layout">
+						<div class="col-lg-3 col-md-3 app__block--location__filters__layout__filter">
+							<label class="app__block--location__filters__layout__filter__label" for="departments">Departamento</label>
+							<select id="departments" class="app__block--location__filters__layout__filter__input-data"></select>
+						</div>
+						<div class="col-lg-3 col-md-3 app__block--location__filters__layout__filter">
+							<label class="app__block--location__filters__layout__filter__label" for="provinces">Provincia</label>
+							<select id="provinces" class="app__block--location__filters__layout__filter__input-data"></select>
+						</div>
+						<div class="col-lg-3 col-md-3 app__block--location__filters__layout__filter">
+							<label class="app__block--location__filters__layout__filter__label" for="districts">Distrito</label>
+							<select id="districts" class="app__block--location__filters__layout__filter__input-data"></select>
+							</div>
+						<div class="col-lg-3 col-md-3 app__block--location__filters__layout__filter">
+							<label class="app__block--location__filters__layout__filter__label" for="address">Ingrese la dirección</label>
+							<input type="text" id="address" class="app__block--location__filters__layout__filter__input-data">
+						</div>
+					</div>
+				</section>
+			</div>
+			<div class="row app__block app__block--service-channels">
+				<header class="row app__block--service-channels__header">
+					<div class="col-lg-10 col-lg-push-1 app__block--service-channels__header__layout">
+						<div class="col-lg-12 app__block--service-channels__header__layout__text">Elige el tipo de canal de atención</div>
+					</div>
+				</header>
+				<section class="row app__block--service-channels__filters">
+					<div class="col-lg-10 col-lg-push-1 app__block--service-channels__filters__layout">
+						<div class="col-lg-2 col-md-2" class="app__block--service-channels__filters__layout__filter">
+							<input type="checkbox" id="serviceChannelAll" class="app__block--service-channels__filters__layout__filter__input-data" style="">
+							<label class="app__block--service-channels__filters__layout__filter__label" for="departments">Todos</label>
+						</div>
+						<div class="col-lg-2 col-md-2" class="app__block--service-channels__filters__layout__filter">
+							<input type="checkbox" id="serviceChanelAgencys" class="app__block--service-channels__filters__layout__filter__input-data">
+							<label class="app__block--service-channels__filters__layout__filter__label" for="provinces">Agencias</label>
+						</div>
+						<div class="col-lg-2 col-md-2" class="app__block--service-channels__filters__layout__filter">
+							<input type="checkbox" id="serviceChanelAgents" class="app__block--service-channels__filters__layout__filter__input-data">
+							<label class="app__block--service-channels__filters__layout__filter__label" for="districts">Agentes GNB</label>
+							</div>
+						<div class="col-lg-3 col-md-3" class="app__block--service-channels__filters__layout__filter">
+							<input type="checkbox" id="serviceChanelATM" class="app__block--service-channels__filters__layout__filter__input-data">
+							<label class="app__block--service-channels__filters__layout__filter__label" for="address">Cajeros automáticos</label>
+						</div>
+						<div class="col-lg-3 col-md-3 app__block--service-channels__filters__layout__button-search">
+							<button type="button" class="col-xs-12 app__block--service-channels__filters__layout__button-search__button" id="buttonSearch">Buscar</button>
+						</div>
+					</div>
+				</section>
+			</div>
+			<div class="row app__block app__block--results">
+				<div class="row" class="app__block--results__layout">
+					<div class="col-lg-10 col-lg-push-1 app__block--results__layout__container">
+						<div class="col-lg-4 app__block--results__layout__container__results">
+							<header class="row app__block--results__layout__container__results__header">
+								<div class="col-lg-12">Haz click en el resultado de tu preferencia</div>
+							</header>
+							<div class="app__block--results__layout__container__results__container">a</div>
+						</div>
+						<div class="col-lg-8 app__block--results__layout__container__map">
+							<header class="row app__block--results__layout__container__map__header">
+								<div class="col-lg-12">Resultados para:</div>
+							</header>
+							<div id="googleMapGNB" class="app__block--results__layout__container__map__container"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        
         <!-- bng - js
 ==================================================-->
         <script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="js/vendor/underscore.min.js"></script>
-        <script src="js/core.js"></script>
+        <script src="js/gnb.js"></script>
     </body>
 </html>

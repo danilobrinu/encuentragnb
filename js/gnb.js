@@ -10,7 +10,7 @@ var ubigeo,
   serviceChannels,
   serviceChannel,
   serviceChannelCoordinates,
-  $buttonSearch = $('.app__screens__display__container__screen--search__form__button'),
+  $buttonSearch = $('#buttonSearch'),
   $buttonShowMap;
 
 $(window).on('load', function() {
@@ -120,7 +120,7 @@ function showMap(serviceChannel) {
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       mapTypeControl: false
   };
-  map = new google.maps.Map(document.getElementById('gm'), mapOptions);
+  map = new google.maps.Map(document.getElementById('googleMapGNB'), mapOptions);
   marker = new google.maps.Marker({
       position: serviceChannelCoordinates,
       map: map,
@@ -155,23 +155,5 @@ function search() {
             "no hay resultados, porfavor vuelva a realizar la busqueda" +
             "</div>";
   results = _.template(template, {serviceChannelsResults: serviceChannelsResults}) == '' ? results : _.template(template, {serviceChannelsResults: serviceChannelsResults});
-  $('.app__screens__display__container__screen--results__layout').html(results);
-}
-
-/* app */
-var $appShowButton = $('.app__show-button'),
-    $appScreens = $('.app__screens'),
-    $appScreensDisplayContainer = $('.app__screens__display__container'),
-    $buttonScreenSearchShow = $('.app__screens__buttons__button--search'),
-    $buttonScreenResultsShow = $('.app__screens__buttons__button--results'),
-    $buttonScreenLegendShow = $('.app__screens__buttons__button--legend');
-/* load events */
-$appShowButton.on('click', function() { $(this).find('.app__show-button__icon').toggleClass('icon-arrow-down').toggleClass('icon-arrow-up'); $appScreens.slideToggle(); });
-$buttonScreenSearchShow.on('click', {index: 0}, showScreen);
-$buttonScreenResultsShow.on('click', {index: 1}, showScreen);
-$buttonScreenLegendShow.on('click', {index: 2}, showScreen);
-
-function showScreen(e) {
-  var targetX = e.data.index * -280;
-  $appScreensDisplayContainer.animate({'left': targetX});
+  $('.app__block--results__layout__container__results__container').html(results);
 }
