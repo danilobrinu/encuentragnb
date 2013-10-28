@@ -12,12 +12,11 @@
         <meta name="author" content="">
         <meta name="description" content="">
         <meta name="keywords" content="">
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
         <!-- bng - css
 ==================================================--> 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/sprites.css">
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/core.css">
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -51,16 +50,16 @@
                                     <input type="text" name="address" id="address" value="" class="app__screens__display__container__screen--search__form__group__input">
                                 </div>
                                 <div class="app__screens__display__container__screen--search__form__group"> 
-                                    <input type="checkbox" name="" id="" class="app__screens__display__container__scren--search__form__group__checkbox"> todos
+                                    <input type="checkbox" id="serviceChannelAll" class="app__screens__display__container__scren--search__form__group__checkbox"> todos
                                 </div>
                                 <div class="app__screens__display__container__screen--search__form__group"> 
-                                    <input type="checkbox" name="" id="" class="app__screens__display__container__scren--search__form__group__checkbox"> agencias
+                                    <input type="checkbox" name="serviceChannelType" value="AGENCIA" class="app__screens__display__container__scren--search__form__group__checkbox"> agencias
                                 </div>
                                 <div class="app__screens__display__container__screen--search__form__group"> 
-                                    <input type="checkbox" name="" id="" class="app__screens__display__container__scren--search__form__group__checkbox"> agentes gnb
+                                    <input type="checkbox" name="serviceChannelType" value="CAJERO" class="app__screens__display__container__scren--search__form__group__checkbox"> cajeros automáticos
                                 </div>
                                 <div class="app__screens__display__container__screen--search__form__group"> 
-                                    <input type="checkbox" name="" id="" class="app__screens__display__container__scren--search__form__group__checkbox"> cajeros automáticos
+                                    <input type="checkbox" name="serviceChannelType" value="CAJERO-UNICARD" class="app__screens__display__container__scren--search__form__group__checkbox"> cajeros unicard
                                 </div>
                                 <button type="button" class="app__screens__display__container__screen--search__form__button">buscar</button>
                             </div>
@@ -74,6 +73,7 @@
                         </div>
                         <div class="app__screens__display__container__screen app__screens__display__container__screen--legend">
                             <div class="app__screens__display__container__screen--legend__layout">
+                                
                             </div>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
         <!-- bng - js
 ==================================================-->
         <script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script src="js/vendor/underscore.min.js"></script>
         <script src="js/core.js"></script>
     </body>
