@@ -26,7 +26,7 @@ $(window).on('load', function() {
     })
     .fail(function() {
       serviceChannels = {};
-      alert('Los datos de los canales de servicio no se han podido cargar');
+      alert('LOS DATOS DE LOS CANALES DE SERVICIOS O AGENCIAS NO SE HAN PODIDO CARGAR.\nPORFAVOR VUELVA A CARGAR LA PAGINA, MUCHAS GRACIAS.');
     });
   /**
    * Initialize Ubigeo
@@ -73,7 +73,7 @@ $(window).on('load', function() {
     })
     .fail(function() {
       ubigeo = {};
-      alert('Los datos de la lista de ubigo personalizado no se ha podido cargar');
+      alert('LOS DATOS DE LA LISTA DE UBIGEO GNB NO SE HAN PODIDO CARGAR.\nPORFAVOR VUELVA A CARGAR LA PAGINA, MUCHAS GRACIAS.');
     });
   /**
    * Initialize GMap
@@ -82,7 +82,7 @@ $(window).on('load', function() {
     showMap({
       latitude: -12.128605, 
       longitude: -76.977698,
-      name: 'BIENVENIDO A BNG'
+      name: 'BIENVENIDO AL BUSCADOR DE AGENCIAS O CANALES DE SERVICIOS DE GNB'
     }, true);
   };
   GMap();

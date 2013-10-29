@@ -1,110 +1,475 @@
 [
-	{
-		"department": "AREQUIPA",
-		"provinces": [
-			{
-				"province": "AREQUIPA",
-				"districts": [
-					{
-						"district": "AREQUIPA"
-					},
-					{
-						"district": "CAYMA"
-					}
-				]
-			}
-		]
-	},
-	{
-		"department": "CALLAO",
-		"provinces": [
-			{
-				"province": "CALLAO",
-				"districts": [
-					{
-						"district": "CARMEN DE LA LEGUA REYNOSO"
-					}
-				]
-			}
-		] 
-	},
-	{
-		"department": "LA LIBERTAD",
-		"provinces": [
-			{
-				"province": "TRUJILLO",
-				"districts": [
-					{
-						"district": "TRUJILLO"
-					}
-				]
-			}
-		] 
-	},
-	{
-		"department": "LAMBAYEQUE",
-		"provinces": [
-			{
-				"province": "CHICLAYO",
-				"districts": [
-					{
-						"district": "CHICLAYO"
-					}
-				]
-			}
-		] 
-	},
-	{
-		"department": "LIMA",
-		"provinces": [
-			{
-				"province": "LIMA",
-				"districts": [
-					{
-						"district": "INDEPENDENCIA"
-					},
-					{
-						"district": "LA MOLINA"
-					},
-					{
-						"district": "LIMA"
-					},
-					{
-						"district": "LOS OLIVOS"
-					},
-					{
-						"district": "MAGDALENA DEL MAR"
-					},
-					{
-						"district": "MIRAFLORES"
-					},
-					{
-						"district": "SAN ISIDRO"
-					},
-					{
-						"district": "SAN MIGUEL"
-					},
-					{
-						"district": "SANTA ANITA"
-					},
-					{
-						"district": "SANTIAGO DE SURCO"
-					}
-				]
-			}
-		] 
-	},
-	{
-		"department": "PIURA",
-		"provinces": [
-			{
-				"province": "PIURA",
-				"districts": [
-					{
-						"district": "PIURA"
-					}
-				]
-			}
-		] 
-	}
+  {
+    "department": "AMAZONAS",
+    "provinces": [
+      {
+        "province": "AMAZONAS",
+        "districts": [
+          {
+            "district": "CHACHAPOYAS"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "department": "ANCASH",
+    "provinces": [
+      {
+        "province": "ANCASH",
+        "districts": [
+          {
+            "district": "HUARAZ"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "department": "APURÍMAC",
+    "provinces": [
+      {
+        "province": "APURÍMAC",
+        "districts": [
+          {
+            "district": "ABANCAY"
+          },
+          {
+            "district": "ANDAHUAYLAS"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "department": "AREQUIPA",
+    "provinces": [
+      {
+        "province": "AREQUIPA",
+        "districts": [
+          {
+            "district": "ALTO SELVA ALEGRE"
+          },
+          {
+            "district": "AREQUIPA"
+          },
+          {
+            "district": "CAMANÁ"
+          },
+          {
+            "district": "CASTILLA"
+          },
+          {
+            "district": "CAYLLOMA"
+          },
+          {
+            "district": "CAYMA"
+          },
+          {
+            "district": "CERCADO"
+          },
+          {
+            "district": "CERRO COLORADO"
+          },
+          {
+            "district": "CHIVAY"
+          },
+          {
+            "district": "JACOBO HUNTER"
+          },
+          {
+            "district": "JOSÉ LUIS BUSTAMANTE Y RIVERO"
+          },
+          {
+            "district": "JULIACA"
+          },
+          {
+            "district": "LA JOYA"
+          },
+          {
+            "district": "MIRAFLORES"
+          },
+          {
+            "district": "PAUCARPATA"
+          },
+          {
+            "district": "YANAHUARA"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "department": "AYACUHO",
+    "provinces": [
+      {
+        "province": "AYACUHO",
+        "districts": [
+          {
+            "district": "HUAMANGA"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "department": "CAJAMARCA",
+    "provinces": [
+      {
+        "province": "CAJAMARCA",
+        "districts": [
+          {
+            "district": "CAJAMARCA"
+          },
+          {
+            "district": "CERCADO"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "department": "CALLAO",
+    "provinces": [
+      {
+        "province": "CALLAO",
+        "districts": [
+          {
+            "district": "CALLAO"
+          },
+          {
+            "district": "CARMEN DE LA LEGUA REYNOSO"
+          },
+          {
+            "district": "CERCADO"
+          },
+          {
+            "district": "URB. DEL ÁGUILA"
+          }
+        ]
+      }
+    ] 
+  },
+  {
+    "department": "CUSCO",
+    "provinces": [
+      {
+        "province": "CUSCO",
+        "districts": [
+          {
+            "district": "CERCADO"
+          },
+          {
+            "district": "CUSCO"
+          },
+          {
+            "district": "LA CONVENCIÓN"
+          },
+          {
+            "district": "QUILLABAMBA"
+          },
+          {
+            "district": "SICUANI"
+          },
+          {
+            "district": "SICUANI-CANCHIS"
+          },
+          {
+            "district": "URUBAMBA"
+          },
+          {
+            "district": "WANCHAQ"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "department": "HUÁNUCO",
+    "provinces": [
+      {
+        "province": "HUÁNUCO",
+        "districts": [
+          {
+            "district": "HUÁNUCO"
+          },
+          {
+            "district": "LEONCIO PRADO"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "department": "ICA",
+    "provinces": [
+      {
+        "province": "ICA",
+        "districts": [
+          {
+            "district": "CERCADO"
+          },
+          {
+            "district": "CHINCHA ALTA"
+          },
+          {
+            "district": "ICA"
+          },
+          {
+            "district": "NAZCA-NAZCA"
+          },
+          {
+            "district": "PISCO"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "department": "LA LIBERTAD",
+    "provinces": [
+      {
+        "province": "LA LIBERTAD",
+        "districts": [
+          {
+            "district": "CERCADO"
+          },
+          {
+            "district": "HUAMACHUCO"
+          },
+          {
+            "district": "LA MERCED"
+          }
+        ]
+      },
+      {
+        "province": "TRUJILLO",
+        "districts": [
+          {
+            "district": "TRUJILLO"
+          }
+        ]
+      }
+    ] 
+  },
+  {
+    "department": "LAMBAYEQUE",
+    "provinces": [
+      {
+        "province": "CHICLAYO",
+        "districts": [
+          {
+            "district": "CHICLAYO"
+          }
+        ]
+      },
+      {
+        "province": "LAMBAYEQUE",
+        "districts": [
+          {
+            "district": "CERCADO"
+          },
+          {
+            "district": "DIEGO FERRE"
+          }
+        ]
+      }
+    ] 
+  },
+  {
+    "department": "LIMA",
+    "provinces": [
+      {
+        "province": "LIMA",
+        "districts": [
+          {
+            "district": "CALLAO"
+          },
+          {
+            "district": "CAÑETE"
+          },
+          {
+            "district": "CHORRILLOS"
+          },
+          {
+            "district": "EL AGUSTINO"
+          },
+          {
+            "district": "INDEPENDENCIA"
+          },
+          {
+            "district": "JESÚS MARÍA"
+          },
+          {
+            "district": "LA MOLINA"
+          },
+          {
+            "district": "LA VICTORIA"
+          },
+          {
+            "district": "LIMA"
+          },
+          {
+            "district": "LINCE"
+          },
+          {
+            "district": "LOS OLIVOS"
+          },
+          {
+            "district": "LURÍN"
+          },
+          {
+            "district": "MAGDALENA DEL MAR"
+          },
+          {
+            "district": "MIRAFLORES"
+          },
+          {
+            "district": "PUENTE PIEDRA"
+          },
+          {
+            "district": "SAN BORJA"
+          },
+          {
+            "district": "SAN ISIDRO"
+          },
+          {
+            "district": "SAN JUAN DE LURIGANCHO"
+          },
+          {
+            "district": "SAN JUAN DE MIRAFLORES"
+          },
+          {
+            "district": "SAN MARTÍN DE PRORRES"
+          },
+          {
+            "district": "SAN MIGUEL"
+          },
+          {
+            "district": "SANTA ANITA"
+          },
+          {
+            "district": "SANTIAGO DE SURCO"
+          },
+          {
+            "district": "SURCO"
+          },
+          {
+            "district": "VILLA EL SALVADOR"
+          },
+          {
+            "district": "VILLA MARÍA DEL TRIUNFO"
+          }
+        ]
+      }
+    ] 
+  },
+  {
+    "department": "MOQUEGUA",
+    "provinces": [
+      {
+        "province": "MOQUEGUA",
+        "districts": [
+          {
+            "district": "CERCADO"
+          },
+          {
+            "district": "ILO"
+          },
+          {
+            "district": "MARISCAL NIETO"
+          },
+          {
+            "district": "MOLLENDO"
+          },
+          {
+            "district": "MOLLENDO-ISLAY"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "department": "PIURA",
+    "provinces": [
+      {
+        "province": "PIURA",
+        "districts": [
+          {
+            "district": "CERCADO"
+          },
+          {
+            "district": "PIURA"
+          },
+          {
+            "district": "SULLANA"
+          },
+          {
+            "district": "TALARA"
+          }
+        ]
+      }
+    ] 
+  },
+  {
+    "department": "PUNO",
+    "provinces": [
+      {
+        "province": "PUNO",
+        "districts": [
+          {
+            "district": "JULIACA-SAN ROMÁN"
+          },
+          {
+            "district": "PUNO"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "department": "SAN MARTÍN",
+    "provinces": [
+      {
+        "province": "SAN MARTÍN",
+        "districts": [
+          {
+            "district": "TARAPOTO"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "department": "TACNA",
+    "provinces": [
+      {
+        "province": "TACNA",
+        "districts": [
+          {
+            "district": "CERCADO"
+          },
+          {
+            "district": "TACNA"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "department": "UCAYALI",
+    "provinces": [
+      {
+        "province": "UCAYALI",
+        "districts": [
+          {
+            "district": "CALLERIA"
+          },
+          {
+            "district": "CORONEL PORTILLO"
+          }
+        ]
+      }
+    ]
+  }
 ]
