@@ -1,20 +1,20 @@
 /* google map */
 var ubigeo,
-  $departments = $('#departments'),
-  $provinces = $('#provinces'),
-  $districts = $('#districts'),
-  $address = $('#address'),
-  $serviceChannelAllTypes = $('#serviceChannelAll'),
-  $serviceChannelType = $('input[name=serviceChannelType]'),
-  map,
-  mapOptions,
-  marker,
-  icon,
-  serviceChannels,
-  serviceChannel,
-  serviceChannelCoordinates,
-  $buttonSearch = $('#buttonSearch'),
-  $buttonShowMap;
+    $departments = $('#departments'),
+    $provinces = $('#provinces'),
+    $districts = $('#districts'),
+    $address = $('#address'),
+    $serviceChannelAllTypes = $('#serviceChannelAll'),
+    $serviceChannelType = $('input[name=serviceChannelType]'),
+    map,
+    mapOptions,
+    marker,
+    icon,
+    serviceChannels,
+    serviceChannel,
+    serviceChannelCoordinates,
+    $buttonSearch = $('#buttonSearch'),
+    $buttonShowMap;
 
 $(window).on('load', function() {
   /**
@@ -39,37 +39,48 @@ $(window).on('load', function() {
       $provinces.on('change', loadDistricts);
       function loadDepartments() {
         var departments = _.pluck(ubigeo, 'department'),
-          template,
-          defaultOption = '<option selected disabled></option>';
+            template,
+            defaultOption = '<option disabled></option>';
+
         template = "<% _.each(departments, function(department) { %>" +
                    "<option value='<%= department %>'><%= department %></option>" +
                    "<% }); %>";
+
         $departments.html( defaultOption + _.template(template, {departments: departments}) );
         $provinces.empty();
         $districts.empty();
       }
-      function loadProvinces() {
-        var department = _.findWhere(ubigeo, {department: $(this).val()}),
-          provinces = _.pluck(department.provinces, 'province'),
-          template,
-          defaultOption = '<option selected disabled></option>';
+      function loadProvinces(departmentDefault) {
+        var department = _.findWhere(ubigeo, {department: _.isString(departmentDefault) ? departmentDefault : $departments.val()}),
+            provinces = _.pluck(department.provinces, 'province'),
+            template,
+            defaultOption = '<option selected disabled></option>';
+
         template = "<% _.each(provinces, function(province) { %>" +
                    "<option value='<%= province %>'><%= province %></option>" +
                    "<% }); %>";
+
         $provinces.html( defaultOption + _.template(template, {provinces: provinces}) );
         $districts.empty();
       }
-      function loadDistricts() {
-        var department = _.findWhere(ubigeo, {department: $departments.val()}),
-          province = _.findWhere(department.provinces, {province: $(this).val()}),
-          districts = _.pluck(province.districts, 'district'),
-          template,
-          defaultOption = '<option selected disabled></option>';
+      function loadDistricts(departmentDefault, provinceDefault) {
+        var department = _.findWhere(ubigeo, {department: _.isString(departmentDefault) ? departmentDefault : $departments.val()}),
+            province = _.findWhere(department.provinces, {province: _.isString(provinceDefault) ? provinceDefault : $provinces.val()}),
+            districts = _.pluck(province.districts, 'district'),
+            template,
+            defaultOption = '<option selected disabled></option>';
+        
         template = "<% _.each(districts, function(district) { %>" + 
                    "<option value='<%= district %>'><%= district %></option>" +
                    "<% }); %>";
+
         $districts.html( defaultOption + _.template(template, {districts: districts}) );
       }
+      // default department and province => LIMA
+      $departments.val('LIMA');
+      setTimeout(function() { loadProvinces('LIMA'); }, 500);
+      setTimeout(function() { $provinces.val('LIMA'); }, 500); 
+      setTimeout(function() { loadDistricts('LIMA', 'LIMA'); }, 500);
     })
     .fail(function() {
       ubigeo = {};
@@ -90,50 +101,56 @@ $(window).on('load', function() {
 
 $buttonSearch.on('click', function() {
   search();
+  $('html, body').animate({
+    scrollTop: $('.app__block--results__layout__container').offset().top - 10
+  }, 'slow');
   /* after search and render data - load events */
   $buttonShowMap = $('.app__block--results__layout__container__results__container__result');
   $buttonShowMap.on('click', function() {
-    console.log('click');
+    var result = $(this);
     var classActiveResult = 'app__block--results__layout__container__results__container__result--active',
-      latitudeChosen = $(this).find('.latitude').val(),
-      longitudeChosen = $(this).find('.longitude').val();
+        latitudeChosen = result.find('.latitude').val(),
+        longitudeChosen = result.find('.longitude').val(),
+        typeChosen = result.find('.type').val();
+
     $('.app__block--results__layout__container__results__container__result').removeClass(classActiveResult);
     $(this).addClass(classActiveResult);
     serviceChannel = _.find(serviceChannels, function(serviceChannel) { return serviceChannel.latitude == latitudeChosen && serviceChannel.longitude == longitudeChosen; });
-    showMap(serviceChannel, false);
+    showMap(serviceChannel, typeChosen != 'CAJERO-UNICARD');
+    $('html, body').animate({
+      scrollTop: $('.app__block--results__layout__container__map').offset().top - 10
+    }, 'slow');
   });
+  /* set default first result */
+  (function() { !$buttonShowMap.length > 0 || $buttonShowMap.first().click() })();
 });
 
 function showMap(serviceChannel, defaultMarker) {
   google.maps.visualRefresh = true;
   serviceChannelCoordinates = new google.maps.LatLng(serviceChannel.latitude, serviceChannel.longitude);
   mapOptions = {
-      zoom: 18,
-      center: serviceChannelCoordinates,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      mapTypeControl: false
+    zoom: 18,
+    center: serviceChannelCoordinates,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    mapTypeControl: false
   };
   map = new google.maps.Map(document.getElementById('googleMapGNB'), mapOptions);
-  if (!defaultMarker) {
-    icon = {
-      url: 'img/markerGNB.png',
-      size: new google.maps.Size(36, 50),
-      origin: new google.maps.Point(0, 0),
-      anchor: new google.maps.Point(0, 50)
-    }
-    marker = new google.maps.Marker({
-        position: serviceChannelCoordinates,
-        map: map,
-        icon: icon,
-        title: serviceChannel.name 
-    });
+  icon = {
+    size: new google.maps.Size(36, 50),
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(18, 25)
+  };
+  if (defaultMarker) {
+    icon.url = 'img/markerGNB.png';
   } else {
-    marker = new google.maps.Marker({
-        position: serviceChannelCoordinates,
-        map: map,
-        title: serviceChannel.name 
-    });
+    icon.url = 'img/markerUnicard.png';
   }
+  marker = new google.maps.Marker({
+    position: serviceChannelCoordinates,
+    map: map,
+    icon: icon,
+    title: serviceChannel.name 
+  });
 }
 
 function search() {
@@ -151,6 +168,7 @@ function search() {
       }),
       template,
       results;
+
   template = '<% _.each(serviceChannelsResults, function(serviceChannelResult) { %>' +
              '<div class="app__block--results__layout__container__results__container__result app__block--results__layout__container__results__container__result--<%= serviceChannelResult.type %>">' +
              '  <header class="app__block--results__layout__container__results__container__result__header">' +
@@ -159,11 +177,13 @@ function search() {
              '  <p class="app__block--results__layout__container__results__container__result__data"><%= serviceChannelResult.address %></p>' +   
              '  <p class="app__block--results__layout__container__results__container__result__data"><%= serviceChannelResult.phones %></p>' +
              '  <div class="hidden invisible ir">' +
+             '    <input type="hidden" value="<%= serviceChannelResult.type %>" class="type">' +
              '    <input type="hidden" value="<%= serviceChannelResult.latitude %>" class="latitude">' +
              '    <input type="hidden" value="<%= serviceChannelResult.longitude %>" class="longitude">' +
              '  </div>' +
              '</div>' +
              '<% }); %>';
+
   $('.app__block--results__layout__container__results__container').html( _.template(template, {serviceChannelsResults: serviceChannelsResults}) );
 }
 
